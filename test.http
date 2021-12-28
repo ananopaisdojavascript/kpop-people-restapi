@@ -1,0 +1,2 @@
+GET http://localhost:5000/people/1
+Content-Type: application/json
