@@ -26,7 +26,7 @@ app.get('/people', (request: Request, response: Response) => {
 
 app.get('/people/:id', (request: Request, response: Response) => {
     const id = request.params.id;
-    const query = `SELECT * FROM members WHERE id = ${id}`;
+    const query = `SELECT * FROM people WHERE id = ${id}`;
     connection.query(query, (error, results, fields) => {
         if (error) throw error;
         response.send(JSON.stringify(results));
