@@ -33,4 +33,8 @@ app.get('/people/:id', (request: Request, response: Response) => {
     })
 })
 
+setInterval(function () {
+    connection.query('SELECT 1');
+}, 5000);
+
 app.listen(port, () => console.log(`Servidor funcionando na porta ${port}! Uhu!!!!!`));
