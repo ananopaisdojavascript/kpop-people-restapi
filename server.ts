@@ -1,5 +1,7 @@
 import express, { Request, Response } from 'express';
 import mysql from 'mysql';
+import bodyParser from 'body-parser';
+require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -10,9 +12,9 @@ const connection = mysql.createConnection({
     database: process.env.DATABASE_DB
 });
 
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }))
 
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.get('/people', (request: Request, response: Response) => {
     const query = 'SELECT * FROM people';
